@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src",
+    "start": "node dist/server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@acme/api": "*",
+    "@trpc/server": "^10.7.0",
+    "fastify": "^4.10.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.4"
+  }
+}
