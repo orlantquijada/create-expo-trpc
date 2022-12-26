@@ -13,9 +13,9 @@ const PostCard: React.FC<{
   post: inferProcedureOutput<AppRouter["post"]["all"]>[number]
 }> = ({ post }) => {
   return (
-    <View className="rounded-lg border-2 border-gray-500 p-4">
-      <Text className="text-xl font-semibold text-[#cc66ff]">{post.title}</Text>
-      <Text className="text-white">{post.content}</Text>
+    <View className="rounded-lg border border-gray-400 p-4">
+      <Text className="text-xl text-gray-900">{post.title}</Text>
+      <Text className="text-gray-400">{post.content}</Text>
     </View>
   )
 }
@@ -35,21 +35,23 @@ const CreatePost: React.FC = () => {
   const [content, onChangeContent] = React.useState("")
 
   return (
-    <View className="flex flex-col border-t-2 border-gray-500 p-4">
+    <View className="flex flex-col border-t border-gray-400 py-4">
       <TextInput
         value={title}
-        className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
+        className="mb-2 rounded border border-gray-400 p-2 text-gray-900"
         onChangeText={onChangeTitle}
         placeholder="Title"
       />
       <TextInput
         value={content}
-        className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
+        className="mb-2 rounded border border-gray-400 p-2 text-gray-900"
         onChangeText={onChangeContent}
         placeholder="Content"
       />
       <TouchableOpacity
-        className="rounded bg-[#cc66ff] p-2"
+        // arbitrary values work!
+        className="rounded bg-[#333] p-2"
+        activeOpacity={0.8}
         onPress={() => {
           mutate({
             title,
@@ -68,20 +70,16 @@ export const HomeScreen = () => {
   const [showPost, setShowPost] = React.useState<string | null>(null)
 
   return (
-    <SafeAreaView className="bg-[#2e026d] bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+    <SafeAreaView>
       <View className="h-full w-full p-4">
-        <Text className="mx-auto pb-2 text-5xl font-bold text-white">
-          Create <Text className="text-[#cc66ff]">T3</Text> Turbo
-        </Text>
-
         <View className="py-2">
           {showPost ? (
-            <Text className="text-white">
-              <Text className="font-semibold">Selected post:</Text>
+            <Text className="text-gray-900">
+              <Text className="font-semibold">Selected post id: </Text>
               {showPost}
             </Text>
           ) : (
-            <Text className="font-semibold italic text-white">
+            <Text className="font-semibold italic text-gray-900">
               Press on a post
             </Text>
           )}
@@ -91,8 +89,12 @@ export const HomeScreen = () => {
           data={postQuery.data}
           estimatedItemSize={20}
           ItemSeparatorComponent={() => <View className="h-2" />}
+          contentContainerStyle={{ paddingBottom: 8 }}
           renderItem={(p) => (
-            <TouchableOpacity onPress={() => setShowPost(p.item.id)}>
+            <TouchableOpacity
+              onPress={() => setShowPost(p.item.id)}
+              activeOpacity={0.6}
+            >
               <PostCard post={p.item} />
             </TouchableOpacity>
           )}
