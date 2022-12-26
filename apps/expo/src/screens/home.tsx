@@ -31,8 +31,8 @@ const CreatePost: React.FC = () => {
     },
   })
 
-  const [title, onChangeTitle] = React.useState("asd")
-  const [content, onChangeContent] = React.useState("qwe")
+  const [title, onChangeTitle] = React.useState("")
+  const [content, onChangeContent] = React.useState("")
 
   return (
     <View className="flex flex-col border-t-2 border-gray-500 p-4">
