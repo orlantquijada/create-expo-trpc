@@ -21,7 +21,6 @@ export function createServer() {
   const stop = () => server.close()
   const start = async () => {
     const host = getHostIP()
-    console.log({ host })
 
     try {
       await server.listen({ port, host })

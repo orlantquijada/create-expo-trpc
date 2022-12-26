@@ -1,5 +1,5 @@
 {
-  "name": "@acme",
+  "name": "@acme/",
   "private": true,
   "packageManager": "pnpm@7.19.0",
   "scripts": {
