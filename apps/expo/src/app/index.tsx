@@ -1,16 +1,13 @@
-import React from "react"
-
+import { FC, useState } from "react"
 import { Text, TextInput, TouchableOpacity, View } from "react-native"
-
 import { SafeAreaView } from "react-native-safe-area-context"
 import { FlashList } from "@shopify/flash-list"
-import type { inferProcedureOutput } from "@trpc/server"
-import type { AppRouter } from "@acme/api"
+import type { RouterOutputs } from "@acme/api"
 
 import { trpc } from "~/utils/trpc"
 
-const PostCard: React.FC<{
-  post: inferProcedureOutput<AppRouter["post"]["all"]>[number]
+const PostCard: FC<{
+  post: RouterOutputs["post"]["all"][number]
 }> = ({ post }) => {
   return (
     <View className="rounded-lg border border-gray-400 p-4">
@@ -20,7 +17,7 @@ const PostCard: React.FC<{
   )
 }
 
-const CreatePost: React.FC = () => {
+const CreatePost: FC = () => {
   const utils = trpc.useContext()
   const { mutate } = trpc.post.create.useMutation({
     async onSuccess() {
@@ -31,8 +28,8 @@ const CreatePost: React.FC = () => {
     },
   })
 
-  const [title, onChangeTitle] = React.useState("")
-  const [content, onChangeContent] = React.useState("")
+  const [title, onChangeTitle] = useState("")
+  const [content, onChangeContent] = useState("")
 
   return (
     <View className="flex flex-col border-t border-gray-400 py-4">
@@ -67,7 +64,7 @@ const CreatePost: React.FC = () => {
 
 export const HomeScreen = () => {
   const postQuery = trpc.post.all.useQuery()
-  const [showPost, setShowPost] = React.useState<string | null>(null)
+  const [showPost, setShowPost] = useState<string | null>(null)
 
   return (
     <SafeAreaView>

@@ -9,5 +9,5 @@
       "@assets/*": ["assets/*"]
     }
   },
-  "include": ["src", "index.ts"]
+  "include": ["src", "app.config.ts", "index.tsx"]
 }
