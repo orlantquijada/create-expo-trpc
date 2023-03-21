@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@acme/api": "*",
+    "@acme/api": "workspace:*",
     "@trpc/server": "^10.7.0",
     "fastify": "^4.10.2"
   },

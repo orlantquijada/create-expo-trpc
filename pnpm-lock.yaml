@@ -28,8 +28,8 @@ importers:
 
   apps/expo:
     specifiers:
-      '@acme/api': '*'
-      '@acme/tailwind-config': '*'
+      '@acme/api': workspace:*
+      '@acme/tailwind-config': workspace:*
       '@babel/core': ^7.21.3
       '@babel/preset-env': ^7.19.3
       '@babel/runtime': ^7.19.0
@@ -81,7 +81,7 @@ importers:
 
   apps/server:
     specifiers:
-      '@acme/api': '*'
+      '@acme/api': workspace:*
       '@trpc/server': ^10.7.0
       '@types/node': ^18.11.17
       fastify: ^4.10.2
@@ -98,7 +98,7 @@ importers:
 
   packages/api:
     specifiers:
-      '@acme/db': '*'
+      '@acme/db': workspace:*
       '@trpc/client': ^10.7.0
       '@trpc/server': ^10.7.0
       eslint: ^8.29.0
@@ -127,15 +127,15 @@ importers:
 
   packages/db:
     specifiers:
-      '@prisma/client': ^4.8.0
+      '@prisma/client': ^4.11.0
       dotenv-cli: ^6.0.0
-      prisma: ^4.8.0
+      prisma: ^4.11.0
       typescript: ^4.9.4
     dependencies:
-      '@prisma/client': 4.8.0_prisma@4.8.0
+      '@prisma/client': 4.11.0_prisma@4.11.0
     devDependencies:
       dotenv-cli: 6.0.0
-      prisma: 4.8.0
+      prisma: 4.11.0
       typescript: 4.9.4
 
 packages:
@@ -2333,8 +2333,8 @@ packages:
       rimraf: 3.0.2
     dev: false
 
-  /@prisma/client/4.8.0_prisma@4.8.0:
-    resolution: {integrity: sha512-Y1riB0p2W52kh3zgssP/YAhln3RjBFcJy3uwEiyjmU+TQYh6QTZDRFBo3JtBWuq2FyMOl1Rye8jxzUP+n0l5Cg==}
+  /@prisma/client/4.11.0_prisma@4.11.0:
+    resolution: {integrity: sha512-0INHYkQIqgAjrt7NzhYpeDQi8x3Nvylc2uDngKyFDDj1tTRQ4uV1HnVmd1sQEraeVAN63SOK0dgCKQHlvjL0KA==}
     engines: {node: '>=14.17'}
     requiresBuild: true
     peerDependencies:
@@ -2343,16 +2343,16 @@ packages:
       prisma:
         optional: true
     dependencies:
-      '@prisma/engines-version': 4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe
-      prisma: 4.8.0
+      '@prisma/engines-version': 4.11.0-57.8fde8fef4033376662cad983758335009d522acb
+      prisma: 4.11.0
     dev: false
 
-  /@prisma/engines-version/4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe:
-    resolution: {integrity: sha512-MHSOSexomRMom8QN4t7bu87wPPD+pa+hW9+71JnVcF3DqyyO/ycCLhRL1we3EojRpZxKvuyGho2REQsMCvxcJw==}
+  /@prisma/engines-version/4.11.0-57.8fde8fef4033376662cad983758335009d522acb:
+    resolution: {integrity: sha512-3Vd8Qq06d5xD8Ch5WauWcUUrsVPdMC6Ge8ILji8RFfyhUpqon6qSyGM0apvr1O8n8qH8cKkEFqRPsYjuz5r83g==}
     dev: false
 
-  /@prisma/engines/4.8.0:
-    resolution: {integrity: sha512-A1Asn2rxZMlLAj1HTyfaCv0VQrLUv034jVay05QlqZg1qiHPeA3/pGTfNMijbsMYCsGVxfWEJuaZZuNxXGMCrA==}
+  /@prisma/engines/4.11.0:
+    resolution: {integrity: sha512-0AEBi2HXGV02cf6ASsBPhfsVIbVSDC9nbQed4iiY5eHttW9ZtMxHThuKZE1pnESbr8HRdgmFSa/Kn4OSNYuibg==}
     requiresBuild: true
 
   /@react-native-community/cli-clean/10.1.1:
@@ -7551,13 +7551,13 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /prisma/4.8.0:
-    resolution: {integrity: sha512-DWIhxvxt8f4h6MDd35mz7BJff+fu7HItW3WPDIEpCR3RzcOWyiHBbLQW5/DOgmf+pRLTjwXQob7kuTZVYUAw5w==}
+  /prisma/4.11.0:
+    resolution: {integrity: sha512-4zZmBXssPUEiX+GeL0MUq/Yyie4ltiKmGu7jCJFnYMamNrrulTBc+D+QwAQSJ01tyzeGHlD13kOnqPwRipnlNw==}
     engines: {node: '>=14.17'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@prisma/engines': 4.8.0
+      '@prisma/engines': 4.11.0
 
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
