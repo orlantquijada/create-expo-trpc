@@ -1,5 +1,6 @@
 import { FC, useState } from "react"
 import { Text, TextInput, TouchableOpacity, View } from "react-native"
+import { useRouter } from "expo-router"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { FlashList } from "@shopify/flash-list"
 import type { RouterOutputs } from "@acme/api"
@@ -9,9 +10,12 @@ import { trpc } from "~/utils/trpc"
 const PostCard: FC<{
   post: RouterOutputs["post"]["all"][number]
 }> = ({ post }) => {
+  const router = useRouter()
   return (
     <View className="rounded-lg border border-gray-400 p-4">
-      <Text className="text-xl text-gray-900">{post.title}</Text>
+      <TouchableOpacity onPress={() => router.push(`/post/${post.id}`)}>
+        <Text className="text-xl text-gray-900">{post.title}</Text>
+      </TouchableOpacity>
       <Text className="text-gray-400">{post.content}</Text>
     </View>
   )
@@ -62,7 +66,7 @@ const CreatePost: FC = () => {
   )
 }
 
-export const HomeScreen = () => {
+const HomeScreen = () => {
   const postQuery = trpc.post.all.useQuery()
   const [showPost, setShowPost] = useState<string | null>(null)
 
@@ -102,3 +106,5 @@ export const HomeScreen = () => {
     </SafeAreaView>
   )
 }
+
+export default HomeScreen
